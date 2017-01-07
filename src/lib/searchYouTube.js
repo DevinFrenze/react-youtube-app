@@ -15,8 +15,6 @@ var searchYouTube = (options, callback) => {
     success: function (data) {
       console.log('Message sent', data.items);
       callback(data.items);
-      // callback(data);
-      console.log('Message sent');
     },
     error: function (data) {
       // See: https://developer.mozilla.org/en-US/docs/Web/API/console.error

@@ -6,17 +6,35 @@ class App extends React.Component {
       videos: window.exampleVideoData
     };
   }
+  componentDidMount() {
+    console.log('this should log before the other one');
+    this.setVideos();
+  }
   playVideo(video) {
     this.setState({
       video: video
     });
     // console.log('It Worked!', this);
   }
-  // setVideos(videos) {
-  //   this.setState({
-  //     videos: videos
-  //   });
-  // }
+  setVideos() {
+    var options = {
+      query: 'Obama',
+      max: 10,
+      key: window.YOUTUBE_API_KEY,
+    };
+    // window.searchYouTube(options, function(data) {
+    //   console.log('before', this.state.videos);
+    //   this.setState({
+    //     videos: data
+    //   });
+    //   console.log('after', this.state.videos);
+    // }.bind(this));
+    this.props.searchYouTube(options, this.callback.bind(this));
+  }
+  callback(data) {
+    console.log(this);
+    this.setState({'videos': data});
+  }
   render() {
     return (
       <div>
