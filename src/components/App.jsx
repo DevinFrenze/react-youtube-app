@@ -10,7 +10,7 @@ class App extends React.Component {
     this.setState({
       video: video
     });
-    console.log('It Worked!', this);
+    // console.log('It Worked!', this);
   }
   // setVideos(videos) {
   //   this.setState({
