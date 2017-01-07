@@ -3,8 +3,10 @@ class App extends React.Component {
     super(props);
     this.state = {
       video: window.exampleVideoData[0],
-      videos: window.exampleVideoData
+      videos: window.exampleVideoData,
+      query: 'Obama'
     };
+    // this.setVideos();
   }
   componentDidMount() {
     console.log('this should log before the other one');
@@ -14,31 +16,31 @@ class App extends React.Component {
     this.setState({
       video: video
     });
-    // console.log('It Worked!', this);
   }
   setVideos() {
     var options = {
-      query: 'Obama',
+      query: this.state.query,
       max: 10,
       key: window.YOUTUBE_API_KEY,
     };
-    // window.searchYouTube(options, function(data) {
-    //   console.log('before', this.state.videos);
-    //   this.setState({
-    //     videos: data
-    //   });
-    //   console.log('after', this.state.videos);
-    // }.bind(this));
     this.props.searchYouTube(options, this.callback.bind(this));
   }
   callback(data) {
-    console.log(this);
+    // console.log(this);
     this.setState({'videos': data});
+  }
+  search(e) {
+    // console.log(e.target.value);
+    // console.log(Object.keys(e));
+    this.setState({
+      query: e.target.value
+    });
+    this.setVideos();
   }
   render() {
     return (
       <div>
-        <Nav />
+        <Nav query={this.search.bind(this)}/>
         <div className="col-md-7">
           <VideoPlayer video={this.state.video}/>
         </div>
