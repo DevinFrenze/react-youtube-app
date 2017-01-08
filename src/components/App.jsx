@@ -29,13 +29,14 @@ class App extends React.Component {
     // console.log(this);
     this.setState({'videos': data});
   }
-  search(e) {
+  search(e) { 
     // console.log(e.target.value);
     // console.log(Object.keys(e));
     this.setState({
       query: e.target.value
     });
-    this.setVideos();
+    _.debounce(this.setVideos.bind(this), 500)();
+    // this.setVideos();
   }
   render() {
     return (
