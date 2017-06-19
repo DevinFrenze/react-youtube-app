@@ -6,7 +6,7 @@ class App extends React.Component {
       videos: window.exampleVideoData,
       query: 'Obama'
     };
-    // this.setVideos();
+    // this.setVideos(); 
   }
   componentDidMount() {
     console.log('this should log before the other one');
@@ -20,13 +20,14 @@ class App extends React.Component {
   setVideos() {
     var options = {
       query: this.state.query,
-      max: 10,
+      max: 4,
       key: window.YOUTUBE_API_KEY,
     };
     this.props.searchYouTube(options, this.callback.bind(this));
   }
   callback(data) {
     // console.log(this);
+    this.setState({video: data[0] });
     this.setState({'videos': data});
   }
   search(e) { 
@@ -52,7 +53,6 @@ class App extends React.Component {
     );
   }
 }
-
 
 // var App = (props) => (
 //   <div>
