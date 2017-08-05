@@ -1,6 +1,6 @@
 # This is a project I created to showcase my skills with reactjs and the youtube data api.
 
-1. Add The API Key as seen on my resume to the file youtube.config.js in the 
+1. Ask for my API key from me. I will supply it to you. Then copy and past it to the file youtube.config.js in the 
 src/config directory
 
 2. Issue the command "npm install" at the root of the repo. 
