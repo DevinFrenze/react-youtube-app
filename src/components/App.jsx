@@ -4,7 +4,7 @@ class App extends React.Component {
     this.state = {
       video: window.exampleVideoData[0],
       videos: window.exampleVideoData,
-      query: 'John Mayer Live Performance'
+      query: 'The Roots Live Performance'
     };
     // this.setVideos();
   }
