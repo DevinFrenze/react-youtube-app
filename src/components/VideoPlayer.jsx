@@ -21,3 +21,4 @@ VideoPlayer.propTypes = {
 window.VideoPlayer = VideoPlayer;
 //rickroll = dQw4w9WgXcQ;
 // {`https://www.youtube.com/embed/${props.currentVideo.id.videoId}?autoplay=1`}
+
