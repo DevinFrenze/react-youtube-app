@@ -46,7 +46,7 @@ class App extends React.Component {
             <VideoPlayer video={this.state.video}/>
           </div>
 
-          <div className = "col-md-7">
+          <div className = "col-md-5">
             <VideoList playVideo={this.playVideo.bind(this)} videos={this.state.videos}/>
           </div>
 
