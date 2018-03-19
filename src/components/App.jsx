@@ -7,6 +7,10 @@ class App extends React.Component {
       query: 'The Roots Live Performance'
     };
     // this.setVideos();
+    this._playVideo = this.playVideo.bind(this);
+    this._search = this.search.bind(this);
+    this._setVideos = this.setVideos.bind(this);
+    this._callback = this.callback.bind(this);
   }
   componentDidMount() {
     console.log('this should log before the other one');
@@ -23,7 +27,7 @@ class App extends React.Component {
       max: 10,
       key: window.YOUTUBE_API_KEY,
     };
-    this.props.searchYouTube(options, this.callback.bind(this));
+    this.props.searchYouTube(options, this._callback);
   }
   callback(data) {
     // console.log(this);
@@ -36,27 +40,27 @@ class App extends React.Component {
     this.setState({
       query: e.target.value
     });
-    _.debounce(this.setVideos.bind(this), 500)();
+    _.debounce(this._setVideos, 500)();
     // this.setVideos();
   }
   render() {
     return (
       <div>
-        <Nav query={this.search.bind(this)}/>
+        <Nav query={this._search}/>
 
-          <div className = "video-wrapper">
+        <div className = "video-wrapper">
 
-            <div className = "col-md-7">
+          <div className = "col-md-7">
             <VideoPlayer video={this.state.video}/>
-            </div>
+          </div>
 
-            <div className = "col-md-7">
-            <VideoList playVideo={this.playVideo.bind(this)} videos={this.state.videos}/>
-            </div>
+          <div className = "col-md-7">
+            <VideoList playVideo={this._playVideo} videos={this.state.videos}/>
+          </div>
 
-         </div>
+        </div>
 
-       </div>
+      </div>
     );
   }
 }
