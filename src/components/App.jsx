@@ -1,3 +1,7 @@
+import Nav from './Nav';
+import VideoList from './VideoList';
+import VideoPlayer from './VideoPlayer';
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -44,36 +48,21 @@ class App extends React.Component {
       <div>
         <Nav query={this.search.bind(this)}/>
 
-          <div className = "video-wrapper">
+        <div className = "video-wrapper">
 
-            <div className = "col-md-7">
+          <div className = "col-md-7">
             <VideoPlayer video={this.state.video}/>
-            </div>
+          </div>
 
-            <div className = "col-md-7">
+          <div className = "col-md-7">
             <VideoList playVideo={this.playVideo.bind(this)} videos={this.state.videos}/>
-            </div>
+          </div>
 
-         </div>
+        </div>
 
-       </div>
+      </div>
     );
   }
 }
 
-// var App = (props) => (
-//   <div>
-//     <Nav />
-//     <div className="col-md-7">
-//       <VideoPlayer/>
-//     </div>
-//     <div className="col-md-5">
-//       <VideoList videos={props.videos}/>
-//     </div>
-//   </div>
-// );
-
-
-// In the ES6 spec, files are "modules" and do not share a top-level scope
-// `var` declarations will only exist globally where explicitly defined
-window.App = App;
+export default App;
